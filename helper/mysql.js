@@ -4,9 +4,9 @@ require('dotenv').config();
 const connection = mysql.createPool({
   connectionLimit: 100, // 100 tane bağlantı oluşturabilir
   host: process.env.DB_HOST,
-  user: process.env.DB_USER,
+  user: "admin",
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE
+  database:"lab_db"
 });
 
 module.exports = connection;
