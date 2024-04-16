@@ -64,11 +64,11 @@ app.get("/students/:id", (req, res) => {
 
 // EKLEME İŞLEMİ
 app.post("/students/add", (req, res) => {
-  const { name, age, midtermGrade, finalGrade } = req.body;
+  const { Name, Age, Midterm_grade, Final_grade } = req.body;
 
   // Veritabanına öğrenci ekleme işlemi
   const queryString = "INSERT INTO students (Name, Age, Midterm_grade, Final_grade) VALUES (?, ?, ?, ?)";
-  dbConnection.query(queryString, [name, age, midtermGrade, finalGrade], (err, results, fields) => {
+  dbConnection.query(queryString, [Name, Age, Midterm_grade, Final_grade], (err, results) => {
     if (err) {
       console.log("Database query error: ", err);
       res.status(500).json({
@@ -85,6 +85,7 @@ app.post("/students/add", (req, res) => {
     }
   });
 });
+
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
